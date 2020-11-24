@@ -1,4 +1,3 @@
-import unittest
 import os
 import shutil
 import time
@@ -123,3 +122,4 @@ if __name__ == "__main__":
     for new_absolute_root in new_absolute_roots:
         result = data_process(new_absolute_root, pdb_name, box_str)
         write2csv(output_path, result)
+    print("done")
