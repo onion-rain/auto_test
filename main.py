@@ -12,6 +12,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 data_root = "data\\"
 ledock_path = r"D:/Ledock.win32/LeDock.exe"
+output_path = "output.csv"
+box_path = "data\\box.txt"
 
 def check_dir(dir):
     if not os.path.exists(dir):
@@ -114,11 +116,9 @@ def write2csv(path, str):
     print()
 
 if __name__ == "__main__":
-    output_path = "output.csv"
     if os.path.exists(output_path):
         os.remove(output_path)
     pdb_name, new_absolute_roots = file_preprocess()
-    box_path = "data\\box.txt"
     box_str = read_box(box_path)
     for new_absolute_root in new_absolute_roots:
         result = data_process(new_absolute_root, pdb_name, box_str, ledock_path)
