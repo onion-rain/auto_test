@@ -11,6 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 data_root = "data\\"
+ledock_path = r"D:/Ledock.win32/LeDock.exe"
 
 def check_dir(dir):
     if not os.path.exists(dir):
@@ -64,11 +65,11 @@ def set_clipboard(str):
     win32clipboard.SetClipboardData(win32clipboard.CF_UNICODETEXT, str)
     win32clipboard.CloseClipboard()
 
-def data_process(absolute_root, pdb_name, box_str):
+def data_process(absolute_root, pdb_name, box_str, ledock_path):
     pdb_path = absolute_root + pdb_name
     mol2_path = absolute_root + absolute_root.split("\\")[-2] + ".mol2"
     desired_caps = {}
-    desired_caps['app'] = r"D:/Ledock.win32/LeDock.exe"
+    desired_caps['app'] = ledock_path
     driver = webdriver.Remote(
         command_executor='http://127.0.0.1:4723',
         desired_capabilities=desired_caps)
@@ -120,6 +121,6 @@ if __name__ == "__main__":
     box_path = "data\\box.txt"
     box_str = read_box(box_path)
     for new_absolute_root in new_absolute_roots:
-        result = data_process(new_absolute_root, pdb_name, box_str)
+        result = data_process(new_absolute_root, pdb_name, box_str, ledock_path)
         write2csv(output_path, result)
     print("done")
