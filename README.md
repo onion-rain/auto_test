@@ -1,7 +1,5 @@
 # 自动测试程序
 
-需求：![](imgs/requirement.jpg)
-
 ## 配置环境
 
 安装依赖：```pip install -r requirements.txt```
@@ -12,7 +10,7 @@ win10设置成开发者模式:![](imgs/win10settings.png)
 
 ## 使用
 
-首先启动WinAppDriver![](imgs\WinAppDriver.png)
+首先启动WinAppDriver：![](imgs\WinAppDriver.png)
 
 将.pdb、.mol2、box.txt等文件复制到工程根目录下的data/目录下
 
